@@ -92,7 +92,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #000000;
+  background: #000000 url('/images/token/background.png') center center/cover no-repeat;
   color: white;
   padding: 2rem 4rem;
   position: relative;
@@ -255,7 +255,7 @@ body {
   max-width: 500px;
   height: auto;
   animation: slowTilt 8s ease-in-out infinite;
-  filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.2));
+  filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.2)) drop-shadow(0 35px 80px rgba(0, 212, 170, 0.4)) drop-shadow(0 50px 120px rgba(0, 212, 170, 0.2));
   transition: transform 0.5s ease;
   display: block;
 }
@@ -280,7 +280,7 @@ body {
 
 .token-wrapper:hover img {
   transform: scale(1.08) rotateY(20deg) rotateX(5deg);
-  filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.4));
+  filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.4)) drop-shadow(0 45px 100px rgba(0, 212, 170, 0.6)) drop-shadow(0 65px 150px rgba(0, 212, 170, 0.3));
 }
 
 @keyframes slowTilt {
