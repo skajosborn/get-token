@@ -91,10 +91,6 @@
       
       <!-- Mobile Version with Static Image -->
       <div class="mobile-tokenomics">
-        <div class="mobile-header">
-          <h2 class="section-title">Tokenomics</h2>
-          <p class="section-subtitle">Transparent allocation for sustainable growth</p>
-        </div>
         <img 
           src="/images/token/GET_Tokenomics_Android_Small.svg" 
           alt="GET Tokenomics Chart" 
@@ -214,9 +210,12 @@ export default {
 
 <style scoped>
 .tokenomics-section {
-  padding: 6rem 2rem;
+  padding: 6rem 0;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .tokenomics-container {
@@ -386,36 +385,21 @@ export default {
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  .tokenomics-section {
-    padding: 3rem 1rem;
-  }
-  
   .desktop-tokenomics {
     display: none;
   }
-  
+
   .mobile-tokenomics {
     display: block;
-    text-align: center;
+    width: 100%;
+    padding: 0;
   }
-  
-  .mobile-header {
-    margin-bottom: 2rem;
-  }
-  
-  .mobile-header .section-title {
-    font-size: 2rem;
-  }
-  
-  .mobile-header .section-subtitle {
-    font-size: 1rem;
-  }
-  
+
   .tokenomics-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
-    border-radius: 10px;
+    display: block;
+    max-width: none;
   }
 }
 
@@ -438,16 +422,16 @@ export default {
 
 @media (max-width: 480px) {
   .tokenomics-section {
-    padding: 2rem 0.75rem;
-  }
-  
-  .mobile-header .section-title {
-    font-size: 1.75rem;
+    padding: 4rem 0;
   }
   
   .pie-chart-image {
     width: 300px;
     height: 300px;
+  }
+
+  .section-title {
+    font-size: 2rem;
   }
 }
 </style>
