@@ -32,7 +32,12 @@
           <img
             src="/images/token/TrustImage.svg"
             alt="Community trust and collaboration illustration"
-            class="trust-community-illustration"
+            class="trust-community-illustration desktop-svg"
+          />
+          <img
+            src="/images/token/GET_Mission_Android_Small.svg"
+            alt="Community trust and collaboration illustration"
+            class="trust-community-illustration mobile-svg"
           />
         </div>
       </div>
@@ -147,6 +152,14 @@
   height: auto;
 }
 
+.mobile-svg {
+  display: none;
+}
+
+.desktop-svg {
+  display: block;
+}
+
 .trust-community-description {
   text-align: center;
   color: #4a5568;
@@ -159,50 +172,73 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .trust-community-section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
   }
   
   .trust-community-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    display: none;
+  }
+  
+  .trust-community-subtitle {
+    display: none;
+  }
+  
+  .trust-community-content {
+    display: none;
+  }
+  
+  .trust-community-description {
+    display: none;
+  }
+  
+  .desktop-svg {
+    display: none;
+  }
+  
+  .mobile-svg {
+    display: block !important;
+    max-width: 90vw;
+    width: 90vw;
+    height: auto;
+  }
+  
+  .trust-community-right {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-community-section {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .trust-community-title {
+    font-size: 1.5rem;
   }
   
   .trust-community-subtitle {
     font-size: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .trust-community-content {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-  
-  .trust-community-left {
-    max-width: 100%;
-  }
-  
-  .trust-community-list-item {
-    justify-content: flex-start;
-    gap: 1rem;
-  }
-  
-  .trust-community-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-  
-  .trust-community-list-text {
-    font-size: 1.1rem;
-  }
-  
-  .trust-community-illustration {
-    max-width: 250px;
   }
   
   .trust-community-description {
     font-size: 1rem;
+    padding: 0 0.5rem;
   }
 }
 </style>

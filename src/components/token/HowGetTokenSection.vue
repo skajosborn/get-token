@@ -6,7 +6,12 @@
           <img
             src="/images/token/GetHow.svg"
             alt="How to Get $GET Tokens"
-            class="how-get-svg"
+            class="how-get-svg desktop-svg"
+          />
+          <img
+            src="/images/token/GET_How_To_Earn_Android_Small.svg"
+            alt="How to Get $GET Tokens"
+            class="how-get-svg mobile-svg"
           />
         </div>
       </div>
@@ -43,14 +48,46 @@
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
 }
 
+.mobile-svg {
+  display: none;
+}
+
+.desktop-svg {
+  display: block;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .how-get-section {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .container {
+    max-width: 100%;
+    width: 100%;
   }
   
   .how-get-svg {
-    max-width: 100%;
+    max-width: 90vw;
+    width: 90vw;
+    height: auto;
+  }
+  
+  .desktop-svg {
+    display: none;
+  }
+  
+  .mobile-svg {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-get-section {
+    padding: 1.5rem 0.75rem;
   }
 }
 </style>

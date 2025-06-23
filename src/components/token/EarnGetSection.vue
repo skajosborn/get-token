@@ -20,6 +20,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+
 const cards = ref([
   {
     title: "Teachers",

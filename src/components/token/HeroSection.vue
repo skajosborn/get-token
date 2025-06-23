@@ -1,100 +1,50 @@
 <template>
-  <header class="hero-section">
-    <div class="hero-section__content py-12">
-      <v-container class="pb-0">
-        <v-row align="center">
-          <v-col
-            cols="12"
-            md="8"
-            class="pb-0 d-flex flex-column justify-center"
-          >
-            <div class="d-flex flex-md-row flex-column mb-5 mb-md-10">
-              <div
-                class="align-self-md-end align-self-center mr-md-10 mb-2 w-full"
-              >
-                <v-btn
-                  class="live-trading-btn mr-4 d-flex align-center"
-                  rounded
-                  :size="`${display.xs.value ? 'large' : 'x-large'}`"
-                  elevation="0"
-                >
-                  <span class="live-trading-dot mr-2"></span>
-                  Live Trading
-                </v-btn>
-              </div>
-              <h1
-                class="hero-section__title font-weight-bold text-white mt-5 mt-md-0"
-              >
-                $GET
-              </h1>
-
-              <div class="d-md-none d-flex justify-center mt-5">
-                <img
-                  src="/images/token/token.png"
-                  alt="Token"
-                  class="hero-token__image--mobile"
-                />
-              </div>
+  <section class="hero-section">
+    <v-container class="hero-container">
+      <v-row align="center" justify="center" class="min-h-screen">
+        <v-col cols="12" md="6" class="hero-content">
+          <div class="title-row">
+            <div class="live-trading-badge">
+              <span class="live-dot"></span>
+              Live Trading
             </div>
-            <div class="d-flex justify-center flex-column align-center">
-              <div class="text-white mb-6 hero-token__description">
-                The future of decentralized finance. powering innovation,
-                enabling growth, and creating value for the community.
-              </div>
-              <div class="mb-1">
-                <span class="hero-token__price text-white"
-                  >${{ animatedPrice }}</span
-                >
-              </div>
-              <div class="mb-6">
-                <span class="hero-token__percentage">+6.47%</span>
-              </div>
-              <div class="d-flex align-center">
-                <v-btn
-                  :size="`${display.xs.value ? 'large' : 'x-large'}`"
-                  class="buy-btn mr-4"
-                  rounded
-                  elevation="0"
-                  >Buy $GET Now</v-btn
-                >
-                <v-btn
-                  class="whitepaper-btn"
-                  rounded
-                  :size="`${display.xs.value ? 'large' : 'x-large'}`"
-                  elevation="0"
-                  >View Whitepaper</v-btn
-                >
-              </div>
-            </div>
-          </v-col>
-          <v-col
-            cols="12"
-            md="4"
-            class="pb-0 d-flex justify-center align-center"
-          >
-            <img
-              src="/images/token/token.png"
-              alt="Token"
-              class="token-image d-none d-md-block horizontal-coin"
-            />
-          </v-col>
+            <h1 class="main-title">$GET</h1>
+          </div>
+          
+          <p class="description">
+            The future of decentralized finance. powering innovation,
+            enabling growth, and creating value for the community.
+          </p>
+          
+          <div class="price-section">
+            <div class="price">${{ animatedPrice }}</div>
+            <div class="change">+6.47%</div>
+          </div>
+          
+          <div class="action-buttons">
+            <button class="buy-btn">Buy $GET Now</button>
+            <button class="whitepaper-btn">View Whitepaper</button>
+          </div>
+                </v-col>
+        
+        <v-col cols="12" md="6" class="hero-image-desktop">
+          <div class="token-wrapper">
+            <img src="/images/token/token.png" alt="GET Token" />
+          </div>
+        </v-col>
         </v-row>
-      </v-container>
-    </div>
-  </header>
+    </v-container>
+  </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { useDisplay } from "vuetify";
-const display = useDisplay();
-const finalPrice = 0.002546; // your real price
+
+const finalPrice = 0.002546;
 const animatedPrice = ref(0);
-const liveTradingCount = ref(0);
-const targetCount = 24;
 
 onMounted(() => {
-  const duration = 1200; // ms
+  const duration = 1200;
   const frameRate = 60;
   const totalFrames = Math.round((duration / 1000) * frameRate);
   let frame = 0;
@@ -109,158 +59,251 @@ onMounted(() => {
   };
 
   animate();
-
-  let current = 0;
-  const stepTime = Math.abs(Math.floor(duration / targetCount));
-  const timer = setInterval(() => {
-    current += 1;
-    liveTradingCount.value = current;
-    if (current >= targetCount) clearInterval(timer);
-  }, stepTime);
 });
 </script>
 
 <style scoped>
 .hero-section {
-  padding: 6rem 0 1rem 0;
-  position: relative;
-  background: #000000;
+  background: #000;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
-.hero-section__content {
-}
-.hero-section__title {
-  font-size: 64px;
-  font-weight: 800;
-  line-height: 0.9em;
-  text-align: center;
-}
-.live-trading-btn {
-  background: rgba(5, 182, 231, 0.3) !important;
-  border: 1px solid rgba(110, 119, 129, 1) !important;
-  color: #fff !important;
-  text-transform: none;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0px;
-}
-.buy-btn {
-  background: linear-gradient(
-    to bottom,
-    rgba(36, 170, 148, 1) 0%,
-    rgba(14, 68, 59, 1) 100%
-  ) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  box-shadow: none !important;
-  text-transform: none;
-}
-.hero-token__price {
-  font-size: 24px;
-  font-weight: 800;
-}
-.hero-token__description {
-  font-size: 12px;
-  font-weight: 400;
-  text-align: center;
-  line-height: 20px;
-}
-.hero-token__percentage {
-  font-size: 20px;
-  font-weight: 400;
-  color: #24aa94;
-}
-.whitepaper-btn {
-  background: rgba(66, 73, 82, 1) !important;
-  border: 1.5px solid rgba(110, 119, 129, 1) !important;
-  color: #fff !important;
-  border-radius: 30px !important;
-  box-shadow: none !important;
-  text-transform: none;
-}
-.token-image {
-  display: block;
-  margin: 0 auto;
-  max-width: 420px;
+
+.hero-container {
   width: 100%;
-  height: auto;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.hero-token__image--mobile {
-  width: 125px;
-  height: 125px;
+
+.hero-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-.live-trading-dot {
-  width: 10px;
-  height: 10px;
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.live-trading-badge {
+  background: rgba(5, 182, 231, 0.3);
+  border: 1px solid rgba(110, 119, 129, 1);
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #24aa94;
   border-radius: 50%;
-  background: rgba(36, 170, 148, 1);
-  display: inline-block;
-  animation: pulse 1.2s infinite;
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(36, 170, 148, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(36, 170, 148, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(36, 170, 148, 0);
-  }
-}
-@media (min-width: 600px) {
-  .hero-token__percentage {
-    font-size: 32px;
-  }
-  .hero-token__description {
-    font-size: 24px;
-    line-height: 36px;
-  }
-  .hero-token__price {
-    font-size: 48px;
-  }
-  .hero-section__title {
-    font-size: 156px;
-    font-weight: 800;
-    line-height: 0.9em;
-  }
-  .live-trading-dot {
-    width: 24px;
-    height: 24px;
-  }
-  .live-trading-btn {
-    font-weight: 600;
-    font-size: 24px;
-  }
-  .hero-section {
-    padding: 10rem 0 8rem 0;
-  }
-}
-@media (min-width: 960px) {
-}
-.rotating-coin {
-  animation: rotate-coin 4s linear infinite;
-  will-change: transform;
-}
-@keyframes rotate-coin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.horizontal-coin {
-  animation: move-horizontal 4s ease-in-out infinite alternate;
-  will-change: transform;
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
-@keyframes move-horizontal {
+.main-title {
+  font-size: 8rem;
+  font-weight: 900;
+  margin: 0;
+  color: white;
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.price-section {
+  margin-bottom: 2rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.change {
+  font-size: 1.5rem;
+  color: #24aa94;
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.buy-btn, .whitepaper-btn {
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.buy-btn {
+  background: linear-gradient(to bottom, #24aa94, #0e443b);
+  color: white;
+}
+
+.buy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(36, 170, 148, 0.3);
+}
+
+.whitepaper-btn {
+  background: rgba(66, 73, 82, 1);
+  border: 1.5px solid rgba(110, 119, 129, 1);
+  color: white;
+}
+
+.whitepaper-btn:hover {
+  background: rgba(80, 90, 100, 1);
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.hero-image-desktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.token-wrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.token-wrapper img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  animation: slowTilt 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.2)) 
+          drop-shadow(0 35px 80px rgba(0, 212, 170, 0.4)) 
+          drop-shadow(0 50px 120px rgba(0, 212, 170, 0.2));
+  transition: transform 0.5s ease;
+}
+
+.token-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent
+  );
+  animation: shimmer 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.token-wrapper:hover img {
+  transform: scale(1.08) rotateY(20deg) rotateX(5deg);
+  filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.4)) 
+          drop-shadow(0 45px 100px rgba(0, 212, 170, 0.6)) 
+          drop-shadow(0 65px 150px rgba(0, 212, 170, 0.3));
+}
+
+@keyframes slowTilt {
+  0%, 100% {
+    transform: rotateY(-15deg);
+  }
+  50% {
+    transform: rotateY(15deg);
+  }
+}
+
+@keyframes shimmer {
   0% {
-    transform: translateX(0);
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
   100% {
-    transform: translateX(60px); /* Adjust distance as needed */
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .title-row {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .main-title {
+    font-size: 5rem;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+  
+  .action-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 3rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-size: 1rem;
+  }
+  
+  .buy-btn, .whitepaper-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .token-wrapper img {
+    max-width: 250px;
   }
 }
 </style>

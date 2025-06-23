@@ -4,7 +4,12 @@
       <img 
         src="/images/token/GET_Tokenomics_Desktop.svg" 
         alt="GET Tokenomics Chart" 
-        class="tokenomics-image" 
+        class="tokenomics-image desktop-svg" 
+      />
+      <img 
+        src="/images/token/GET_Tokenomics_Android_Small.svg" 
+        alt="GET Tokenomics Chart" 
+        class="tokenomics-image mobile-svg" 
       />
     </div>
   </div>
@@ -40,10 +45,50 @@ export default {
   border-radius: 10px;
 }
 
+.mobile-svg {
+  display: none;
+}
+
+.desktop-svg {
+  display: block;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
+  .tokenomics-section {
+    padding: 2rem 1rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .tokenomics-image-container {
+    max-width: 100%;
+    width: 100%;
+  }
+  
   .tokenomics-image {
-    max-width: 350px;
+    max-width: 90vw;
+    width: 90vw;
+    height: auto;
+  }
+  
+  .desktop-svg {
+    display: none;
+  }
+  
+  .mobile-svg {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .tokenomics-section {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .tokenomics-image {
+    max-width: 100%;
   }
 }
 </style>
