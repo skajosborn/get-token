@@ -2,93 +2,74 @@
   <div>
     <!-- Hero Section -->
     <div class="hero-section">
-      <div class="hero-content">
-        <div class="title-row">
-          <div class="live-trading-badge">
-            <span class="live-dot"></span>
-            Live Trading
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="title-row">
+            <div class="live-trading-badge">
+              <span class="live-dot"></span>
+              Live Trading
+            </div>
+            <h1 class="main-title">$GET</h1>
           </div>
-          <h1 class="main-title">$GET</h1>
+          
+          <div class="centered-content">
+            <p class="description">
+              The future of decentralized finance, powering innovation,<br>
+              enabling growth, and creating value for the community.
+            </p>
+            
+            <div class="price-section">
+              <div class="price">$0.002546</div>
+              <div class="change">+6.47%</div>
+            </div>
+            
+            <div class="action-buttons">
+              <a href="https://jup.ag/swap/SOL-GeutGuhcTYRf4rkbZmWDMEgjt5jHyJN4nHko38GJjQhv" target="_blank" class="buy-btn">
+                Buy $GET Now
+              </a>
+              <button class="whitepaper-btn">
+                View Whitepaper
+              </button>
+            </div>
+          </div>
         </div>
         
-        <div class="centered-content">
-          <p class="description">
-            The future of decentralized finance, powering innovation,<br>
-            enabling growth, and creating value for the community.
-          </p>
-          
-          <div class="price-section">
-            <div class="price">$0.002546</div>
-            <div class="change">+6.47%</div>
+        <div class="hero-image">
+          <div class="token-wrapper">
+            <img src="/images/token/token.png" alt="GET Token" />
           </div>
-          
-          <div class="action-buttons">
-            <a href="https://jup.ag/swap/SOL-GeutGuhcTYRf4rkbZmWDMEgjt5jHyJN4nHko38GJjQhv" target="_blank" class="buy-btn">
-              Buy $GET Now
-            </a>
-            <button class="whitepaper-btn">
-              View Whitepaper
-            </button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="hero-image">
-        <div class="token-wrapper">
-          <img src="/images/token/token.png" alt="GET Token" />
         </div>
       </div>
     </div>
+
+    <!-- About GET Section -->
+    <TokenAboutSection />
+
+    <!-- How to Get Token Section -->
+    <HowGetTokenSection />
 
     <!-- Tokenomics Section -->
-    <div class="tokenomics-section">
-      <h2>$GET Tokenomics</h2>
-      <div class="tokenomics-content">
-        <ul>
-          <li><strong>10 billion GET</strong></li>
-          <li>
-            <strong>Allocation:</strong>
-            <ul>
-              <li><strong>70% Governance (7B GET)</strong></li>
-              <li><strong>20% Team (2B GET)</strong></li>
-              <li><strong>10% Liquidity (1B GET)</strong></li>
-            </ul>
-          </li>
-          <li><a href="https://solscan.io/token/GeutGuhcTYRf4rkbZmWDMEgjt5jHyJN4nHko38GJjQhv" target="_blank">See $GET on SolScan</a></li>
-        </ul>
-      </div>
-    </div>
+    <TokenomicsSection />
 
-    <!-- Token Lock Section -->
-    <div class="token-lock-section">
-      <div class="content">
-        <h2>Token Lock & Release Schedule</h2>
-        <ul>
-          <li><strong>Team Share Lock</strong>: Locked in <a href="https://lock.jup.ag" target="_blank">https://lock.jup.ag</a> for 5 years.</li>
-          <li><strong>Governance Lock:</strong> Locked for 10 years, with 700M GET released annually for governance participants.</li>
-        </ul>
-      </div>
-      <div class="image">
-        <img src="/images/token/tokenomicsdesktop.png" alt="Token Lock & Release Schedule" />
-      </div>
-    </div>
-
-    <!-- Buy Section -->
-    <div class="buy-section">
-      <h2>Join the Movement</h2>
-      <h3>Buy $GET Today</h3>
-      <p>Empower education. Power the Gama ecosystem.</p>
-      <a href="https://jup.ag/swap/SOL-GeutGuhcTYRf4rkbZmWDMEgjt5jHyJN4nHko38GJjQhv" target="_blank" class="jupiter-btn">
-        <img src="/images/token/jupiter.png" alt="Jupiter" />
-        Buy on Jupiter
-      </a>
-    </div>
+    <!-- Trust Community Section -->
+    <TrustCommunitySection />
   </div>
 </template>
 
 <script>
+import TokenomicsSection from './components/token/TokenomicsSection.vue';
+import TokenAboutSection from './components/token/TokenAboutSection.vue';
+import HowGetTokenSection from './components/token/HowGetTokenSection.vue';
+import TrustCommunitySection from './components/token/TrustCommunitySection.vue';
+
 export default {
   name: 'App',
+  components: {
+    TokenomicsSection,
+    TokenAboutSection,
+    HowGetTokenSection,
+    TrustCommunitySection,
+  },
   mounted() {
     // Jupiter terminal integration can be added later
   },
@@ -109,7 +90,7 @@ body {
 .hero-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 100vh;
   background: #000000;
   color: white;
@@ -117,10 +98,17 @@ body {
   position: relative;
 }
 
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
 .hero-content {
   flex: 1;
   max-width: 600px;
-  padding-right: 2rem;
 }
 
 .title-row {
@@ -133,14 +121,15 @@ body {
 .live-trading-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(0, 212, 170, 0.2);
-  border: 1px solid #00d4aa;
+  background: rgba(56, 178, 172, 0.6);
+  border: 1px solid rgba(56, 178, 172, 0.7);
   border-radius: 25px;
   padding: 8px 16px;
   font-size: 14px;
   font-weight: 500;
-  color: #00d4aa;
+  color: #ffffff;
   flex-shrink: 0;
+  backdrop-filter: blur(10px);
 }
 
 .live-dot {
@@ -197,42 +186,48 @@ body {
 
 .action-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   align-items: center;
+  justify-content: center;
 }
 
 .buy-btn {
-  background: #00d4aa;
+  background: #4ade80;
   color: white;
   padding: 16px 32px;
-  border-radius: 25px;
+  border-radius: 9999px;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   border: none;
+  display: inline-block;
+  min-width: 160px;
+  text-align: center;
 }
 
 .buy-btn:hover {
-  background: #00b894;
+  background: #22c55e;
   transform: translateY(-1px);
 }
 
 .whitepaper-btn {
-  background: transparent;
-  color: #9ca3af;
+  background: #374151;
+  color: #ffffff;
   padding: 16px 32px;
-  border-radius: 25px;
-  border: 1px solid #374151;
+  border-radius: 9999px;
+  border: none;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  min-width: 180px;
+  text-align: center;
 }
 
 .whitepaper-btn:hover {
-  background: #374151;
-  color: white;
+  background: #4b5563;
+  transform: translateY(-1px);
 }
 
 .hero-image {
@@ -290,16 +285,10 @@ body {
 
 @keyframes slowTilt {
   0%, 100% {
-    transform: rotateX(-8deg) rotateY(0deg);  /* Top tilt */
-  }
-  25% {
-    transform: rotateX(8deg) rotateY(0deg);   /* Bottom tilt */
+    transform: rotateY(-15deg);  /* Left tilt */
   }
   50% {
-    transform: rotateX(0deg) rotateY(-8deg);  /* Left tilt */
-  }
-  75% {
-    transform: rotateX(0deg) rotateY(8deg);   /* Right tilt */
+    transform: rotateY(15deg);   /* Right tilt */
   }
 }
 
@@ -317,92 +306,12 @@ body {
   }
 }
 
-.tokenomics-section {
-  padding: 4rem 2rem;
-  background: white;
-}
 
-.tokenomics-section h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
-.tokenomics-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
 
-.token-lock-section {
-  display: flex;
-  align-items: center;
-  padding: 4rem 2rem;
-  background: #24292f;
-  color: white;
-}
-
-.token-lock-section .content {
-  flex: 1;
-  padding-right: 2rem;
-}
-
-.token-lock-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.token-lock-section .image {
-  flex: 1;
-}
-
-.token-lock-section img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.buy-section {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: #f5f5f5;
-}
-
-.buy-section h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.buy-section h3 {
-  font-size: 2rem;
-  color: #ffb600;
-  margin-bottom: 1rem;
-}
-
-.jupiter-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #000;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  margin-top: 2rem;
-}
-
-.jupiter-btn img {
-  width: 30px;
-  height: 30px;
-}
 
 a {
   color: #00d4aa;
-}
-
-ul {
-  text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -434,15 +343,6 @@ ul {
   .action-buttons {
     flex-direction: column;
     align-items: stretch;
-  }
-  
-  .token-lock-section {
-    flex-direction: column;
-  }
-  
-  .token-lock-section .content {
-    padding-right: 0;
-    margin-bottom: 2rem;
   }
 }
 </style>

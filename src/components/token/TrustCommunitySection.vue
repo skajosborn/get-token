@@ -1,170 +1,208 @@
 <template>
   <section class="trust-community-section">
-    <v-container class="trust-community-container">
+    <div class="container">
       <h2 class="trust-community-title">Built On Trust, Driven By Community</h2>
-      <p class="trust-community-subtitle text-h5">
-        At Gamatrain, our mission is to empower the community through a
-        foundation of:
+      <p class="trust-community-subtitle">
+        At Gamatrain, our mission is to empower the community through a foundation of:
       </p>
-      <v-row
-        class="trust-community-content"
-        justify="center"
-        align="center"
-        no-gutters
-      >
-        <v-col cols="12" md="4" class="trust-community-list-col">
-          <ul class="trust-community-list">
-            <li
-              class="trust-community-list-item"
-              v-for="item in items"
-              :key="item.text"
-            >
-              <span class="trust-community-icon">
-                <v-img
-                  :src="item.img"
-                  :alt="item.text + ' icon'"
-                  class="trust-community-img-icon"
-                  contain
-                  width="21"
-                  height="18"
-                />
-              </span>
-              <span class="trust-community-list-text">{{ item.text }}</span>
-            </li>
-          </ul>
-        </v-col>
-        <v-col cols="12" md="4" class="trust-community-illustration-col">
-          <v-img
-            src="/images/token/built.png"
+      <div class="trust-community-content">
+        <div class="trust-community-left">
+          <div class="trust-community-list">
+            <div class="trust-community-list-item">
+              <div class="trust-community-icon trust-icon">
+                🔒
+              </div>
+              <span class="trust-community-list-text">Trust</span>
+            </div>
+            <div class="trust-community-list-item">
+              <div class="trust-community-icon transparency-icon">
+                🔍
+              </div>
+              <span class="trust-community-list-text">Transparency</span>
+            </div>
+            <div class="trust-community-list-item">
+              <div class="trust-community-icon accountability-icon">
+                🤝
+              </div>
+              <span class="trust-community-list-text">Shared Accountability</span>
+            </div>
+          </div>
+        </div>
+        <div class="trust-community-right">
+          <img
+            src="/images/token/TrustImage.svg"
             alt="Community trust and collaboration illustration"
-            class="trust-community-illustration d-none d-lg-block"
-            contain
-            width="245"
-            height="245"
+            class="trust-community-illustration"
           />
-        </v-col>
-      </v-row>
-      <p class="trust-community-description text-h5">
-        Every decision, reward, and improvement is made with our contributors in
-        mind – because GamaTrain is built with you, not just for you.
+        </div>
+      </div>
+      <p class="trust-community-description">
+        Every decision, reward, and improvement is made with our contributors in mind - because GamaTrain is built with you, not just for you.
       </p>
-    </v-container>
+    </div>
   </section>
 </template>
 
 <script setup>
-const items = ref([
-  {
-    img: "/images/token/trust.png",
-    text: "Trust",
-  },
-  {
-    img: "/images/token/transparency.png",
-    text: "Transparency",
-  },
-  {
-    img: "/images/token/shared.png",
-    text: "Shared Accountability",
-  },
-]);
+// Component uses GetMission.svg for crisp, scalable graphics
 </script>
 
 <style scoped>
 .trust-community-section {
   background: #fff;
-  padding: 56px 0 40px 0;
+  padding: 4rem 2rem;
 }
-.trust-community-container {
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
 .trust-community-title {
   text-align: center;
   color: #354053;
-  font-weight: 800;
-  margin-bottom: 32px;
-  font-size: 24px;
-}
-.trust-community-subtitle {
-  text-align: center;
-  color: #24292f;
-  margin-bottom: 32px;
-}
-.trust-community-content {
-  margin-bottom: 32px;
-}
-.trust-community-list-col {
-  display: flex;
-  justify-content: center;
-}
-.trust-community-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.trust-community-list-item {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-.trust-community-icon {
-  background: #23272f;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #23272f;
-}
-.trust-community-img-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-.trust-community-list-text {
-  color: #4a5568;
-  font-size: 16px;
   font-weight: 700;
-  font-family: "Inter", "Roboto", "Arial", sans-serif;
-}
-.trust-community-illustration-col {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.trust-community-illustration {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
-.trust-community-description {
-  margin-top: 40px;
-  text-align: center;
-  color: #4a5568;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
-@media (min-width: 600px) {
-  .trust-community-title {
-    text-align: center;
-    color: #354053;
-    font-weight: 800;
-    margin-bottom: 32px;
-    font-size: 30px;
-  }
+
+.trust-community-subtitle {
+  text-align: center;
+  color: #24292f;
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 960px) {
-  .trust-community-list-col,
-  .trust-community-illustration-col {
-    justify-content: center !important;
+
+.trust-community-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  min-height: 320px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.trust-community-left {
+  flex: 1;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trust-community-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.trust-community-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.trust-community-icon {
+  background: #23272f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.3rem;
+}
+
+.trust-community-list-text {
+  color: #24292f;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+}
+
+.trust-community-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 280px;
+}
+
+.trust-community-illustration {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.trust-community-description {
+  text-align: center;
+  color: #4a5568;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .trust-community-section {
+    padding: 3rem 1rem;
+  }
+  
+  .trust-community-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .trust-community-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .trust-community-content {
+    flex-direction: column;
+    gap: 2rem;
     text-align: center;
   }
-  .trust-community-list {
-    margin-left: 0;
-    margin-right: 0;
+  
+  .trust-community-left {
+    max-width: 100%;
   }
+  
+  .trust-community-list-item {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  
+  .trust-community-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .trust-community-list-text {
+    font-size: 1.1rem;
+  }
+  
   .trust-community-illustration {
-    margin-top: 32px;
-    margin-bottom: 16px;
+    max-width: 250px;
+  }
+  
+  .trust-community-description {
+    font-size: 1rem;
   }
 }
 </style>
