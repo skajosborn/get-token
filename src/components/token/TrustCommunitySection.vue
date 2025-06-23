@@ -36,9 +36,21 @@
           />
           <img
             src="/images/token/GET_Mission_Android_Small.svg"
-            alt="Community trust and collaboration illustration"
+            alt="Built on Trust - Mobile version"
             class="trust-community-illustration mobile-svg"
+            onError="console.log('Mobile SVG failed to load')"
           />
+          <!-- Fallback content for mobile -->
+          <div class="mobile-fallback">
+            <h2>Built on Trust, Driven by Community</h2>
+            <p>At GamaTrain, our mission is to empower the community through a foundation of:</p>
+            <ul>
+              <li>🔒 Trust</li>
+              <li>🔍 Transparency</li>  
+              <li>🤝 Shared Accountability</li>
+            </ul>
+            <p>Every decision, reward, and improvement is made with our contributors in mind - because GamaTrain is built with you, not just for you.</p>
+          </div>
         </div>
       </div>
       <p class="trust-community-description">
@@ -172,26 +184,79 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .trust-community-section {
-    padding: 2rem 1rem;
-    min-height: auto;
+    padding: 3rem 1rem;
+    min-height: 60vh;
+    background: #fff;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: 50vh;
   }
   
   .trust-community-title,
   .trust-community-subtitle,
   .trust-community-content,
   .trust-community-description {
-    display: none;
+    display: none !important;
+  }
+  
+  .trust-community-right {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .desktop-svg {
-    display: none;
+    display: none !important;
   }
   
   .mobile-svg {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    display: none !important; /* Hide SVG since it's not loading */
+  }
+  
+  .mobile-fallback {
+    display: block !important;
+    text-align: center;
+    padding: 2rem;
+    color: #24292f;
+  }
+  
+  .mobile-fallback h2 {
+    color: #354053;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .mobile-fallback p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .mobile-fallback ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+  
+  .mobile-fallback li {
+    font-size: 1.2rem;
+    margin: 0.8rem 0;
+    font-weight: 600;
+  }
+  
+  /* Show fallback if SVG doesn't load or as backup */
+  .mobile-svg:not([src*="GET_Mission_Android_Small.svg"]) + .mobile-fallback,
+  .mobile-svg[src=""] + .mobile-fallback {
+    display: block !important;
   }
 }
 
