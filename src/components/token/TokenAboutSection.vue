@@ -54,6 +54,7 @@
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+  transform: scale(0.85); /* Make the SVG slightly smaller to reduce title size */
 }
 
 .mobile-svg {
@@ -86,12 +87,17 @@
     width: 100%;
     max-width: 100%;
     height: auto;
+    transform: scale(0.9); /* Slightly larger scale for mobile but still reduced */
   }
 }
 
 @media (max-width: 480px) {
   .about-get-section {
     padding: 1.5rem 0.75rem;
+  }
+  
+  .about-get-svg, .what-can-you-do-svg {
+    transform: scale(0.95); /* Even larger scale for smaller screens but still reduced */
   }
 }
 </style>

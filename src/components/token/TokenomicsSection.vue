@@ -6,6 +6,7 @@
         <div class="tokenomics-content">
           <div class="tokenomics-header">
             <h2 class="section-title">Tokenomics</h2>
+            <p class="section-subtitle">Transparent allocation for sustainable growth</p>
           </div>
           
           <div class="tokenomics-main">
@@ -15,6 +16,7 @@
                   :src="GetPieChart" 
                   alt="GET Token Distribution Chart" 
                   class="pie-chart-image"
+                  @mouseover="handleChartHover"
                   @mousemove="handleChartMouseMove"
                   @mouseleave="handleMouseOut"
                 />
@@ -91,6 +93,10 @@
       
       <!-- Mobile Version with Static Image -->
       <div class="mobile-tokenomics">
+        <div class="mobile-header">
+          <h2 class="section-title">Tokenomics</h2>
+          <p class="section-subtitle">Transparent allocation for sustainable growth</p>
+        </div>
         <img 
           src="/images/token/GET_Tokenomics_Android_Small.svg" 
           alt="GET Tokenomics Chart" 
@@ -127,49 +133,19 @@ export default {
   },
   
   methods: {
+    handleChartHover(event) {
+      // You can add specific hover logic here if needed
+      // For now, we'll rely on the legend hover functionality
+    },
+    
     handleChartMouseMove(event) {
-      const rect = event.target.getBoundingClientRect();
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const mouseX = event.clientX - rect.left - centerX;
-      const mouseY = event.clientY - rect.top - centerY;
-      
-      // Calculate angle from center (0 degrees = right, 90 = bottom, etc.)
-      let angle = Math.atan2(mouseY, mouseX) * (180 / Math.PI);
-      if (angle < 0) angle += 360;
-      
-      // Determine which section based on angle and distance from center
-      const distance = Math.sqrt(mouseX * mouseX + mouseY * mouseY);
-      const maxRadius = Math.min(centerX, centerY) * 0.8; // Approximate chart radius
-      
-      if (distance < maxRadius) {
-        // Adjust angles based on your pie chart layout
-        // Governance: 70% (large section, roughly 0-252 degrees)
-        // Liquidity: 10% (small section, roughly 252-288 degrees) 
-        // Team: 20% (medium section, roughly 288-360 degrees)
-        
-        let popupType = null;
-        if (angle >= 0 && angle < 252) {
-          popupType = 'governance';
-        } else if (angle >= 252 && angle < 288) {
-          popupType = 'liquidity';
-        } else if (angle >= 288 && angle <= 360) {
-          popupType = 'team';
-        }
-        
-        if (popupType && popupType !== this.activePopup) {
-          this.activePopup = popupType;
-        }
-        
-        // Position popup near the mouse cursor
-        if (this.activePopup) {
-          this.popupPosition = {
-            left: (event.clientX - rect.left + 20) + 'px',
-            top: (event.clientY - rect.top - 50) + 'px'
-          };
-        }
-      } else {
-        this.activePopup = null;
+      // Update popup position based on mouse movement over the chart
+      if (this.activePopup) {
+        const rect = event.target.getBoundingClientRect();
+        this.popupPosition = {
+          left: (event.clientX - rect.left + 20) + 'px',
+          top: (event.clientY - rect.top - 50) + 'px'
+        };
       }
     },
     
@@ -179,26 +155,11 @@ export default {
     
     showPopup(type) {
       this.activePopup = type;
-      // Position popup over the corresponding pie chart section
-      if (type === 'governance') {
-        // Position over yellow section (70% - largest section, left-center area)
-        this.popupPosition = {
-          left: '120px',
-          top: '160px'
-        };
-      } else if (type === 'liquidity') {
-        // Position over light teal section (10% - small section, top-right area)
-        this.popupPosition = {
-          left: '280px',
-          top: '80px'
-        };
-      } else if (type === 'team') {
-        // Position over dark teal section (20% - medium section, bottom-right area)
-        this.popupPosition = {
-          left: '280px',
-          top: '240px'
-        };
-      }
+      // Position popup near the legend item
+      this.popupPosition = {
+        left: '420px',
+        top: '200px'
+      };
     },
     
     hidePopup() {
@@ -210,12 +171,9 @@ export default {
 
 <style scoped>
 .tokenomics-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
 
 .tokenomics-container {
@@ -241,10 +199,11 @@ export default {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: #1a1a1a;
   margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .section-subtitle {
@@ -370,36 +329,38 @@ export default {
   border-radius: 10px;
 }
 
-/* Style popup colors to match pie chart sections */
-.popup-overlay img[src*="GovernancePopup"] {
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2)) sepia(1) saturate(2) hue-rotate(15deg) brightness(1.1);
-}
-
-.popup-overlay img[src*="LiquidityPopup"] {
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2)) sepia(1) saturate(1.5) hue-rotate(140deg) brightness(1.3);
-}
-
-.popup-overlay img[src*="TeamPopup"] {
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2)) sepia(1) saturate(1.8) hue-rotate(140deg) brightness(0.9);
-}
-
 /* Mobile styles */
 @media (max-width: 768px) {
+  .tokenomics-section {
+    padding: 3rem 1rem;
+  }
+  
   .desktop-tokenomics {
     display: none;
   }
-
+  
   .mobile-tokenomics {
     display: block;
-    width: 100%;
-    padding: 0;
+    text-align: center;
   }
-
+  
+  .mobile-header {
+    margin-bottom: 2rem;
+  }
+  
+  .mobile-header .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .mobile-header .section-subtitle {
+    font-size: 1rem;
+  }
+  
   .tokenomics-image {
-    width: 100%;
+    max-width: 100%;
     height: auto;
-    display: block;
-    max-width: none;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
+    border-radius: 10px;
   }
 }
 
@@ -422,16 +383,16 @@ export default {
 
 @media (max-width: 480px) {
   .tokenomics-section {
-    padding: 4rem 0;
+    padding: 2rem 0.75rem;
+  }
+  
+  .mobile-header .section-title {
+    font-size: 1.75rem;
   }
   
   .pie-chart-image {
     width: 300px;
     height: 300px;
-  }
-
-  .section-title {
-    font-size: 2rem;
   }
 }
 </style>

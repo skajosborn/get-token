@@ -88,13 +88,13 @@ onMounted(() => {
 
 .background-image {
   position: absolute;
-  top: 0;
+  top: -80px;
   left: 20%;
   width: 100%;
   height: 100%;
   object-fit: contain;
   z-index: 0;
-  transform: scale(0.8) translateY(0);
+  transform: scale(0.8) translateY(-50px);
   opacity: 0.8;
 }
 
@@ -148,14 +148,14 @@ onMounted(() => {
 }
 
 .main-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: 8rem;
   font-weight: 900;
   margin: 0;
   color: white;
 }
 
 .description {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #b0b0b0;
   margin-bottom: 2rem;
@@ -167,14 +167,14 @@ onMounted(() => {
 }
 
 .price {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 3rem;
   font-weight: 700;
   color: white;
   margin-bottom: 0.5rem;
 }
 
 .change {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: 1.5rem;
   color: #24aa94;
   font-weight: 600;
 }

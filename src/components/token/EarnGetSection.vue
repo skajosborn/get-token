@@ -58,10 +58,11 @@ const cards = ref([
 }
 .earn-get-title {
   color: #000000;
-  font-size: 26px;
+  font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 40px;
   text-align: center;
+  line-height: 1.2;
 }
 .earn-get-grid {
 }
@@ -127,7 +128,7 @@ const cards = ref([
     padding: 0 8px;
   }
   .earn-get-title {
-    font-size: 20px;
+    font-size: 1.8rem;
     margin-bottom: 24px;
   }
   .earn-get-img-section {

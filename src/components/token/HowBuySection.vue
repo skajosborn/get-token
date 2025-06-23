@@ -175,9 +175,10 @@
   background: #fff;
 }
 .how-buy-title {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: 700;
-  color: #000000;
+  color: #354053;
+  line-height: 1.2;
 }
 .how-buy-step-title {
   font-size: 12px;
@@ -241,6 +242,11 @@
     font-size: 36px;
     font-weight: 800;
     color: #354053;
+  }
+}
+@media (max-width: 600px) {
+  .how-buy-title {
+    font-size: 1.5rem;
   }
 }
 @media (min-width: 960px) {

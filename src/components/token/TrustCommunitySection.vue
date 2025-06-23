@@ -8,19 +8,19 @@
       <div class="trust-community-content">
         <div class="trust-community-left">
           <div class="trust-community-list">
-            <div class="trust-community-list-item">
+            <div class="trust-community-item">
               <div class="trust-community-icon trust-icon">
                 🔒
               </div>
               <span class="trust-community-list-text">Trust</span>
             </div>
-            <div class="trust-community-list-item">
+            <div class="trust-community-item">
               <div class="trust-community-icon transparency-icon">
                 🔍
               </div>
               <span class="trust-community-list-text">Transparency</span>
             </div>
-            <div class="trust-community-list-item">
+            <div class="trust-community-item">
               <div class="trust-community-icon accountability-icon">
                 🤝
               </div>
@@ -79,7 +79,7 @@
   text-align: center;
   color: #354053;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 0.25rem;
   font-size: 2rem;
   line-height: 1.2;
   max-width: 800px;
@@ -90,24 +90,21 @@
 .trust-community-subtitle {
   text-align: center;
   color: #24292f;
-  margin-bottom: 3rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.4;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .trust-community-content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 4rem;
-  min-height: 320px;
+  gap: 1rem;
+  margin: 0.5rem auto;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .trust-community-left {
@@ -119,33 +116,31 @@
 }
 
 .trust-community-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
+  display: grid;
+  gap: 0.5rem;
 }
 
-.trust-community-list-item {
+.trust-community-item {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .trust-community-icon {
   background: #23272f;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .trust-community-list-text {
   color: #24292f;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: "Inter", sans-serif;
 }
@@ -174,11 +169,11 @@
 
 .trust-community-description {
   text-align: center;
-  color: #4a5568;
-  font-size: 1.4rem;
-  line-height: 1.6;
-  max-width: 1200px;
-  margin: 0 auto;
+  color: #24292f;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 0.5rem auto 0;
+  max-width: 1000px;
 }
 
 /* Responsive design */
