@@ -6,27 +6,23 @@
     <!-- Token About Section (includes What Can You Do content) -->
     <TokenAboutSection />
     
-    <!-- How to Earn $GET Section -->
-    <EarnGetSection />
+    <!-- How to Get $GET Section -->
+    <HowGetTokenSection />
     
     <!-- Tokenomics Section -->
     <TokenomicsSection />
     
-    <!-- How to Get $GET Section -->
-    <HowGetTokenSection />
+    <!-- Trust Community Section -->
+    <TrustCommunitySection />
     
     <!-- Economy/Built On Section -->
     <EconomySection />
-    
-    <!-- Trust Community Section -->
-    <TrustCommunitySection />
   </div>
 </template>
 
 <script>
 import HeroSection from './components/token/HeroSection.vue';
 import TokenAboutSection from './components/token/TokenAboutSection.vue';
-import EarnGetSection from './components/token/EarnGetSection.vue';
 import TokenomicsSection from './components/token/TokenomicsSection.vue';
 import HowGetTokenSection from './components/token/HowGetTokenSection.vue';
 import EconomySection from './components/token/EconomySection.vue';
@@ -37,7 +33,6 @@ export default {
   components: {
     HeroSection,
     TokenAboutSection,
-    EarnGetSection,
     TokenomicsSection,
     HowGetTokenSection,
     EconomySection,

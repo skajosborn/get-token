@@ -48,7 +48,7 @@ const cards = ref([
 
 <style scoped>
 .earn-get-section {
-  background: rgba(36, 41, 47, 0.05);
+  background: transparent;
   padding: 48px 0;
   margin-top: 4rem;
 }
