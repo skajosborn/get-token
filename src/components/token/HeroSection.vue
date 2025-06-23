@@ -1,5 +1,8 @@
 <template>
   <section class="hero-section">
+    <div class="background-wrapper">
+      <img src="/images/token/TokenBackground.png" alt="Background" class="background-image" />
+    </div>
     <v-container class="hero-container">
       <v-row align="center" justify="center" class="min-h-screen">
         <v-col cols="12" md="6" class="hero-content">
@@ -64,14 +67,40 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
-  background: #000;
+  position: relative;
   color: white;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: -80px;
+  left: 20%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 0;
+  transform: scale(0.8) translateY(-50px);
+  opacity: 0.8;
 }
 
 .hero-container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -210,9 +239,7 @@ onMounted(() => {
   width: 100%;
   height: auto;
   animation: slowTilt 8s ease-in-out infinite;
-  filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.2)) 
-          drop-shadow(0 35px 80px rgba(0, 212, 170, 0.4)) 
-          drop-shadow(0 50px 120px rgba(0, 212, 170, 0.2));
+
   transition: transform 0.5s ease;
 }
 
@@ -236,9 +263,6 @@ onMounted(() => {
 
 .token-wrapper:hover img {
   transform: scale(1.08) rotateY(20deg) rotateX(5deg);
-  filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.4)) 
-          drop-shadow(0 45px 100px rgba(0, 212, 170, 0.6)) 
-          drop-shadow(0 65px 150px rgba(0, 212, 170, 0.3));
 }
 
 @keyframes slowTilt {
@@ -253,14 +277,9 @@ onMounted(() => {
 @keyframes shimmer {
   0% {
     left: -100%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
   }
   100% {
     left: 100%;
-    opacity: 0;
   }
 }
 
@@ -282,11 +301,19 @@ onMounted(() => {
   .action-buttons {
     justify-content: center;
   }
+  
+  .hero-image-desktop {
+    margin-top: 2rem;
+  }
+  
+  .token-wrapper img {
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 600px) {
   .main-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   
   .price {
@@ -297,9 +324,13 @@ onMounted(() => {
     font-size: 1rem;
   }
   
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
   .buy-btn, .whitepaper-btn {
-    padding: 12px 20px;
-    font-size: 14px;
+    width: 100%;
   }
   
   .token-wrapper img {
