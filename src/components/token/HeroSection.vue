@@ -307,5 +307,10 @@ onMounted(() => {
   }
 }
 
-/* Force recompilation */
+/* Mobile-only bottom padding for coin */
+@media (max-width: 768px) {
+  .hero-image-desktop {
+    padding-bottom: 3rem;
+  }
+}
 </style>
