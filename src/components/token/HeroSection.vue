@@ -340,8 +340,63 @@ onMounted(() => {
 
 /* Mobile-only bottom padding for coin */
 @media (max-width: 768px) {
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .background-image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+
+  .main-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+  }
+
+  .description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  .change {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+  }
+
   .hero-image-desktop {
-    padding-bottom: 3rem;
+    order: 2;
+    margin-bottom: 2rem;
+  }
+
+  .price-section {
+    order: 3;
+    margin-bottom: 2rem;
+  }
+
+  .action-buttons {
+    order: 4;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .buy-btn, .whitepaper-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    width: auto;
+  }
+
+  .token-wrapper img {
+    max-width: 300px;
   }
 }
 </style>
