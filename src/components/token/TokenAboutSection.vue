@@ -1,22 +1,30 @@
 <template>
-  <div>
-    <section class="about-get-section">
-      <div class="container">
-        <div class="svg-container">
-          <img
-            src="/images/token/AboutGet.svg"
-            alt="About $GET - What is $GET and What Can You Do With $GET"
-            class="about-get-svg desktop-svg"
-          />
-          <img
-            src="/images/token/GET_What_is_GET_Android_Small.svg"
-            alt="About $GET - What is $GET and What Can You Do With $GET"
-            class="about-get-svg mobile-svg"
-          />
-        </div>
+  <section class="about-get-section">
+    <div class="container">
+      <div class="svg-container">
+        <!-- Desktop: Combined What is GET + What Can You Do -->
+        <img
+          src="/images/token/AboutGet.svg"
+          alt="About $GET - What is $GET and What Can You Do With $GET"
+          class="about-get-svg desktop-svg"
+        />
+        
+        <!-- Mobile: Separate What is GET section -->
+        <img
+          src="/images/token/GET_What_is_GET_Android_Small.svg"
+          alt="What is $GET"
+          class="about-get-svg mobile-svg"
+        />
+        
+        <!-- Mobile: Separate What Can You Do section -->
+        <img
+          src="/images/token/WhatCanYouDoAndroidSmall.svg"
+          alt="What Can You Do With $GET"
+          class="what-can-you-do-svg mobile-svg"
+        />
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 <script setup></script>
 
@@ -42,7 +50,7 @@
   width: 100%;
 }
 
-.about-get-svg {
+.about-get-svg, .what-can-you-do-svg {
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
@@ -60,20 +68,13 @@
 @media (max-width: 768px) {
   .about-get-section {
     padding: 2rem 1rem;
-    min-height: 80vh;
+    min-height: auto;
+  }
+  
+  .svg-container {
     display: flex;
-    align-items: center;
-  }
-  
-  .container {
-    max-width: 100%;
-    width: 100%;
-  }
-  
-  .about-get-svg {
-    max-width: 90vw;
-    width: 90vw;
-    height: auto;
+    flex-direction: column;
+    gap: 1rem;
   }
   
   .desktop-svg {
@@ -82,6 +83,9 @@
   
   .mobile-svg {
     display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
 }
 

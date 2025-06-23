@@ -173,32 +173,12 @@
 @media (max-width: 768px) {
   .trust-community-section {
     padding: 2rem 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 80vh;
+    min-height: auto;
   }
   
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .trust-community-title {
-    display: none;
-  }
-  
-  .trust-community-subtitle {
-    display: none;
-  }
-  
-  .trust-community-content {
-    display: none;
-  }
-  
+  .trust-community-title,
+  .trust-community-subtitle,
+  .trust-community-content,
   .trust-community-description {
     display: none;
   }
@@ -208,18 +188,10 @@
   }
   
   .mobile-svg {
-    display: block !important;
-    max-width: 90vw;
-    width: 90vw;
-    height: auto;
-  }
-  
-  .trust-community-right {
-    max-width: 100%;
+    display: block;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    max-width: 100%;
+    height: auto;
   }
 }
 

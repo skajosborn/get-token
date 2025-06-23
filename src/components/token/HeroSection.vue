@@ -306,4 +306,6 @@ onMounted(() => {
     max-width: 250px;
   }
 }
+
+/* Force recompilation */
 </style>
