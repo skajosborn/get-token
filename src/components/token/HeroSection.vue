@@ -1,8 +1,5 @@
 <template>
   <section class="hero-section">
-    <div class="background-wrapper">
-      <img src="/images/token/TokenBackground.png" alt="Background" class="background-image" />
-    </div>
     <v-container class="hero-container">
       <v-row align="center" justify="center" class="min-h-screen">
         <v-col cols="12" md="6" class="hero-content">
@@ -74,28 +71,6 @@ onMounted(() => {
   align-items: center;
   overflow: hidden;
   background-color: #000;
-}
-
-.background-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.background-image {
-  position: absolute;
-  top: -80px;
-  left: 20%;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-  transform: scale(0.8) translateY(-50px);
-  opacity: 0.8;
 }
 
 .hero-container {
@@ -345,15 +320,6 @@ onMounted(() => {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-  }
-
-  .background-image {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scale(1.2);
-    opacity: 0.6;
   }
 
   .main-title {
